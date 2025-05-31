@@ -73,7 +73,8 @@ def AddCourse(request):
 
 
 def CourseList(request):
-    courseData = TeacherModel.objects.all()
+    courseData = CourseModel.objects.all()
+
     context={
         'courseList' : courseData,
     }
