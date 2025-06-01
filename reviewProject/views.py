@@ -112,3 +112,73 @@ def deleteCourse(request,myid):
 
 
 
+def editStudent(request,myid):
+   
+    student=StudentModel.objects.get(id=myid)
+    contex={
+        'data':student
+    }
+
+
+    if request.method=='POST':
+        student=StudentModel(
+            id=myid,
+            Student_Name=request.POST.get("studentName"),
+            Department_Name=request.POST.get("departmentName"),
+            City_Name=request.POST.get("city"),
+            Student_Age=request.POST.get("studentAge"),
+
+        )
+        student.save()
+        return redirect("StudentList")
+    
+
+
+    return render(request,"editStudent.html",contex)
+
+def editTeacher(request,myid):
+   
+    teacher=TeacherModel.objects.get(id=myid)
+    contex={
+        'data':teacher
+    }
+
+    if request.method=='POST':
+        teacher=TeacherModel(
+            id=myid,
+            Teacher_Name=request.POST.get("teacherName"),
+            Department_Name=request.POST.get("departmentName"),
+            Email=request.POST.get("email"),
+            Designation=request.POST.get("designation"),
+
+        )
+        teacher.save()
+        return redirect("TeacherList")
+
+
+    return render(request,"editTeacher.html",contex)
+
+
+
+def editCourse(request,myid):
+   
+    course=CourseModel.objects.get(id=myid)
+    contex={
+        'data':course
+    }
+
+    if request.method=='POST':
+        course=CourseModel(
+            id=myid,
+            Course_Name=request.POST.get("courseName"),
+            Course_Number=request.POST.get("courseNumber"),
+            Course_Credit=request.POST.get("courseCredit"),
+            Course_Duration=request.POST.get("courseDuration"),
+
+        )
+        course.save()
+        return redirect("CourseList")
+
+
+    return render(request,"editCourse.html",contex)
+

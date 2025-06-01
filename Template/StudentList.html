@@ -61,8 +61,8 @@
       <td>{{ i.City_Name }}</td>
       <td>{{ i.Student_Age }}</td>
       <td class="actions">
-        <a href="">Edit</a>
-        <a href=" {% url 'deleteStudent' i.id %}">Delete</a>
+        <a href="{% url 'editStudent' i.id %}" >Edit</a>
+        <a href=" {% url 'deleteStudent' i.id %}" >Delete</a>
         <a href="">View</a>
       </td>
     </tr>

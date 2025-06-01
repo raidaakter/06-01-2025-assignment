@@ -62,7 +62,7 @@
     <td>{{i.Course_Credit}}</td>
     <td>{{i.Course_Duration}}</td>
     <td class="actions">
-        <a href="">Edit</a>
+        <a href="{% url 'editCourse' i.id %}">Edit</a>
         <a href=" {% url 'deleteCourse' i.id %}">Delete</a>
         <a href="">View</a>
       </td>
