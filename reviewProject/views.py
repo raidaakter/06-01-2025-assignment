@@ -82,3 +82,33 @@ def CourseList(request):
     return render(request,'CourseList.html',context)
 
 
+
+def deleteStudent(request,myid):
+   
+    students=StudentModel.objects.get(id=myid)
+
+    students.delete()
+
+    return redirect("StudentList")
+
+
+def deleteTeacher(request,myid):
+   
+    teachers=TeacherModel.objects.get(id=myid)
+
+    teachers.delete()
+
+    return redirect("TeacherList")
+
+
+
+def deleteCourse(request,myid):
+   
+    courses=CourseModel.objects.get(id=myid)
+
+    courses.delete()
+
+    return redirect("CourseList")
+
+
+
